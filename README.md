@@ -30,6 +30,12 @@ This project analyzes sales, profitability, and discount impact using the Supers
 - `superstore.pbix` → Power BI dashboard
 - `superstore.pdf` → Dashboard preview
 
+## 📊 Dashboard Overview
+![Overview](pictures/dashboard_overview.png)
+
+## 📉 Discount Analysis
+![Discount](pictures/discount_analysis.png)
+
 ---
 
 💡 This project demonstrates end-to-end data analysis: from SQL exploration to business insights in Power BI.
