@@ -34,7 +34,7 @@ This project analyzes sales, profitability, and discount impact using the Supers
 ![Overview](pictures/dashboard_overview.png)
 
 ## 📉 Discount Analysis
-![Discount](pictures/discount_analysis.png)
+![Discount](pictures/analisis_descuento.png)
 
 ---
 
