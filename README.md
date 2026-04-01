@@ -12,12 +12,12 @@ This project analyzes sales, profitability, and discount impact using the Supers
 - MySQL (data exploration & validation)
 - Power BI (data modeling & visualization)
 - DAX (measures and KPIs)
-
-## 📈 Key Insights
-- Technology is the top-performing category in terms of sales
-- Discounts above 30% lead to negative profitability, especially in Furniture
-- New York City generates the highest sales
-- A small group of customers contributes significantly to total revenue
+- Python (exploratory data analysis)
+- 
+## 💡 Key Insights
+- Higher discounts reduce profitability significantly
+- Furniture is the most sensitive category to discounts
+- Sales are concentrated in specific cities and customers
 
 ## 📊 Dashboard Features
 - Interactive filters (Category, Region, Segment)
@@ -29,6 +29,12 @@ This project analyzes sales, profitability, and discount impact using the Supers
 ## 📁 Files
 - `superstore.pbix` → Power BI dashboard
 - `superstore.pdf` → Dashboard preview
+- `queries.sql` → SQL analysis queries
+- `superstore_analysis.ipynb` → Python exploratory analysis
+
+- ## 💼 Business Recommendation
+
+Limit discounts above 30%, especially in the Furniture category, as they consistently lead to negative profitability.
 
 ## 📊 Dashboard Overview
 ![Overview](pictures/dashboard_overview.png)
