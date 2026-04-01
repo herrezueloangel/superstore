@@ -31,10 +31,10 @@ This project analyzes sales, profitability, and discount impact using the Supers
 - `superstore.pdf` → Dashboard preview
 
 ## 📊 Dashboard Overview
-![Overview](pictures/overview.png)
+![Overview](pictures/Overview.png.png)
 
 ## 📉 Discount Analysis
-![Discount](pictures/discount_analysis.png)
+![Discount](pictures/Análisis descuento.png)
 
 ---
 
