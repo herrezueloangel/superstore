@@ -1,1 +1,103 @@
+CREATE DATABASE superstore;
+USE superstore;
+
+CREATE TABLE superstore(
+    Row_ID INT,
+    Order_ID VARCHAR(50),
+    Order_Date TEXT,
+    Ship_Date TEXT,
+    Ship_Mode VARCHAR(50),
+    Customer_ID VARCHAR(50),
+    Customer_Name VARCHAR(100),
+    Segment VARCHAR(50),
+    Country VARCHAR(50),
+    City VARCHAR(50),
+    State VARCHAR(50),
+    Postal_Code INT,
+    Region VARCHAR(50),
+    Product_ID VARCHAR(50),
+    Category VARCHAR(50),
+    Sub_Category VARCHAR(50),
+    Product_Name TEXT,
+    Sales FLOAT,
+    Quantity INT,
+    Discount FLOAT,
+    Profit FLOAT
+);
+
+-- Media de ventas y beneficios por descuento
+
+SELECT Discount, 
+	ROUND(AVG(Sales),2) As Media_ventas,
+	ROUND(AVG(Profit),2) AS Media_beneficios
+FROM superstore
+GROUP BY Discount;
+
+-- Media de ventas y beneficios por descuento, ahora añadimos columna con calculo % beneficio
+
+SELECT Discount, 
+	ROUND(AVG(Sales),2) As Media_ventas,
+	ROUND(AVG(Profit),2) AS Media_beneficios,
+    ROUND(AVG(Profit/Sales*100),2) AS Margen_beneficios    
+FROM superstore
+GROUP BY Discount;
+
+-- Vemos si todas las categorías tienen la misma evolución de perdida de beneficio con respecto a los descuentos
+
+SELECT Discount, 
+	Category,
+    ROUND(AVG(Profit/Sales*100),2) AS Margen_beneficios    
+FROM superstore
+GROUP BY Category, Discount
+ORDER BY Category, Discount;
+
+-- Cálculo de las ventas totales, beneficio total y margen de beneficio
+
+SELECT Category,
+	ROUND(SUM(Sales),3) AS total_ventas,
+    ROUND(SUM(Profit),3) AS beneficio_total,
+    ROUND((SUM(Profit)/SUM(Sales)*100),2) AS margen_beneficio
+FROM superstore
+GROUP BY Category;
+
+
+-- Categorías que más venden
+
+SELECT Category, ROUND(SUM(Sales),3) AS total_ventas
+FROM superstore
+GROUP BY Category
+ORDER BY total_ventas DESC;
+
+-- Categoría con más beneficio 
+SELECT Category, ROUND(SUM(Profit),3) AS total_beneficios
+FROM superstore
+GROUP BY Category
+ORDER BY total_beneficios DESC;
+
+-- Ciudad que vende más
+
+SELECT City, ROUND(SUM(Sales),3) AS total_ventas
+FROM superstore
+GROUP BY City
+ORDER BY total_ventas DESC;
+SET SQL_SAFE_UPDATES = 0;
+
+-- Ventas por año
+
+SELECT YEAR(`Order Date`) AS year,
+       ROUND(SUM(Sales), 2) AS total_anual
+FROM superstore
+GROUP BY year
+ORDER BY year;
+
+-- Ventas por clientes
+
+SELECT `Customer ID` ,
+		`Customer Name` ,
+		ROUND(SUM(Sales), 2) AS total_cliente
+FROM superstore
+GROUP BY `Customer ID` , `Customer Name` 
+ORDER BY total_cliente DESC;
+
+
 
